@@ -908,11 +908,6 @@ public class Cluster {
                             Event.SchemaChange scc = (Event.SchemaChange)event;
                             switch (scc.change) {
                                 case CREATED:
-                                    if (scc.table.isEmpty())
-                                        submitSchemaRefresh(null, null);
-                                    else
-                                        submitSchemaRefresh(scc.keyspace, null);
-                                    break;
                                 case DROPPED:
                                     if (scc.table.isEmpty())
                                         submitSchemaRefresh(null, null);
